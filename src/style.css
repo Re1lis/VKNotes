@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Comfortaa:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Play:wght@400;700&family=Rubik+Mono+One&display=swap');body{
+    margin: 0 100px !important;
+    padding: 0;
+    box-sizing: border-box;
+    background: #99A2AD;
+}
+
+h1, h2, h3, h4, h5, h6{
+    margin: 0;
+}
+
+button{
+    font-weight: 600;
+    font-size: 30px;
+    text-align: center;
+    font-family: "Amatic SC", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    transition-duration: 0.2s;
+    border: 10px double black;
+    outline: none;
+}
+
+
+
+
+.header{
+    margin: 10px 20px;
+    align-items: center;
+    justify-content: space-between;
+    font-family: "Amatic SC", sans-serif;
+    color: white;
+    text-align: center;
+
+    .main-title{
+        font-size: 30px;
+    }
+
+    .info-block-header{
+        display: flex;
+        justify-content: space-evenly;
+        font-size: 18px;   
+    }
+}
+
+.subheader{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+
+    .subtitle{
+        font-family: "Caveat", cursive;
+        font-size: 40px;
+        color: white;
+        text-shadow: 3px 3px 2px black;
+    }
+
+
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 1px 2px 2px gray;
+  
+    
+    .modal-window{
+        border: 10px double black;
+        box-shadow: 0 0 10px gray;
+        background: white;
+        padding: 20px;
+        border-radius: 30px;
+
+        .title-modal{
+            font-family: "Amatic SC", sans-serif;
+            font-size: 40px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .subtitle-modal{
+            font-family: "Play", sans-serif;
+            font-size: 23px;
+        }
+
+        textarea{
+            width: 100%;
+            resize: none;
+            height: 150px;
+            font-family: "Play", sans-serif;
+            font-size: 20px
+        }
+
+        .char-count{
+            font-family: "Amatic SC", sans-serif;
+            font-size: 30px;
+            text-align: center; 
+            font-weight: 700;
+        }
+        
+
+        .buttons-block{
+            display: flex;
+            gap: 20px;
+            justify-content: space-between;
+        }
+
+        .error-text{
+            font-family: "Amatic SC", sans-serif;
+            font-size: 30px;
+            text-align: center;
+        }
+    }
+}
+
+.container-notes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-notes{
+    list-style-type: none;
+
+
+    .item-list{
+        display: flex !important;
+        justify-content: center !important;
+        gap: 20px;
+        align-items: center !important;
+        padding: 10px;
+        border-radius: 20px;
+        border: 15px double white;
+        margin-left: -40px;
+        flex-wrap: wrap;
+        margin-bottom: 30px;
+        max-width: 500px !important;
+
+
+        .title-note{
+            font-family: "Play", sans-serif;
+            font-size: 20px;
+            color: white;
+            width: 150px;
+            overflow: hidden;
+
+            &::first-letter{
+                text-transform: uppercase;
+            }
+        }
+    }
+}
+
+
