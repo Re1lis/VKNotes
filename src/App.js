@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './style.css'
 import bridge from '@vkontakte/vk-bridge';
+import stickerVK from './sticker-for-join.png'
 
 export default function App() {
   const [listNotes, setListNotes] = useState([]);
@@ -13,6 +14,7 @@ export default function App() {
   const [editIndex, setEditIndex] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [charCount, setCharCount] = useState(0);
+  const [stick, setStick] = useState(true)
 
   useEffect(() => {
     async function fetchData() {
@@ -58,30 +60,32 @@ export default function App() {
       setEditIndex(null);
       setIsEditing(false);
     } else {
-      setListNotes([...listNotes, { id: Date.now(), text: text }]);
+      const newNotes = [...listNotes, { id: Date.now(), text: text }];
+      setListNotes(newNotes);
       setCount(count + 1);
+      saveData(count + 1, newNotes); 
     }
 
     setCharCount(0);
     setIsOpen(false);
     setModalErr(false);
     setNoteText('');
-    saveData(count, listNotes); 
   };
 
   const deleteNote = (id) => {
-    setListNotes(listNotes.filter((note) => note.id !== id));
+    const updatedNotes = listNotes.filter((note) => note.id !== id);
+    setListNotes(updatedNotes);
     setCount(count - 1);
-    saveData(count - 1, listNotes.filter((note) => note.id !== id)); 
+    saveData(count - 1, updatedNotes);  
   };
 
   const openEditModal = (index, text) => {
     setEditIndex(index);
     setEditText(text);
+    setNoteText(text); 
     setIsOpen(true);
     setIsEditing(true); 
   };
-  
 
   useEffect(() => {
     async function fetchUser () {
@@ -113,6 +117,25 @@ export default function App() {
 
   return (
     <>
+      {stick && (
+        <div className='container-join'>
+          <div className='block'>
+              <img src={stickerVK}/>
+
+              <h3 className='text'>
+                Привет, 
+                {
+                  vkuser && vkuser?.first_name
+                }
+              </h3>
+
+              <button className='hello-hell' onClick={() => setStick(false)}>
+                Привет, Чертенок! &#128205;
+              </button>
+          </div>
+        </div>
+      )}
+
       <header className='header'>
         <h1 className='main-title' >
           Заметки
